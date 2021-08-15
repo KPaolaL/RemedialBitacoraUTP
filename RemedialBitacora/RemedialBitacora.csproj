@@ -78,6 +78,16 @@
   <ItemGroup>
     <Content Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx" />
     <Content Include="AsignaciondeProfeMateria\EditAsig.aspx" />
+    <Content Include="assets\css\magister.css" />
+    <Content Include="assets\images\bita.jpg" />
+    <Content Include="assets\images\body1.jpg" />
+    <Content Include="assets\images\body2.jpg" />
+    <Content Include="assets\images\body3.jpg" />
+    <Content Include="assets\images\body4.jpg" />
+    <Content Include="assets\images\body5.JPG" />
+    <Content Include="assets\images\gt_favicon.png" />
+    <Content Include="assets\js\magister.js" />
+    <Content Include="assets\js\modernizr.custom.72241.js" />
     <Content Include="css\main.css" />
     <Content Include="GradoEspecialidad\AgregarGradoEspe.aspx" />
     <Content Include="GradoEspecialidad\EditGrado.aspx" />
