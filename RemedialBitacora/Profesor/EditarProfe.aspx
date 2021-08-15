@@ -1,23 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregaProfesor.aspx.cs" Inherits="RemedialBitacora.Profesor.AgregaProfesor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditarProfe.aspx.cs" Inherits="RemedialBitacora.Profesor.EditarProfe" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"/>
-        <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet"  media="all" />
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
-        <link href="vendor/select2/select2.min.css" rel="stylesheet"  media="all"/>
-        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all" />
-        <link href="css/main.css" rel="stylesheet"  media="all" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h3>Registro de profesores</h3>
-                              <div class="row row-space">
+        <div>  <div class="row row-space">
                             <div class="col-2">
                                   <div class="input-group">
                                         <label class="label">Registro Empleado</label>
@@ -77,35 +69,9 @@
                                         </div>
                                    </div>
                                       <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agragar profesor" />
-                                      <asp:Button ID="Button2" runat="server" Text="Regresar" />
+                                      <asp:Button ID="Button2" runat="server" Text="Regresar" OnClick="Button2_Click" />
                                       <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
                                       <br />
-                                      <br />
-                                      <br />
-                                      Mostrar registros que fueron agregados de los profesores
-                                      <asp:GridView ID="GridView1" runat="server">
-                                          <Columns>
-                                                 <asp:templatefield headertext="Editar" SortExpression="[Id Especifico]">
-                                                <itemtemplate >
-                                                  <asp:Button   ID='LinkButton1' runat="server" Text="Editar" OnClick="EditarProfesor" CommandArgument='<%# Bind("[Codigo]")%>' >  </asp:Button>
-                                                </itemtemplate>
-                                              </asp:templatefield>
-                                                <asp:TemplateField HeaderText="Eliminar" SortExpression="[Id Especifico]"><ItemTemplate>
-                                                                                  <asp:Button  ID='LinkButton2' runat="server" Text="Eliminar" OnClick="EliminarProfesor" CommandArgument='<%# Bind("[Codigo]")%>' >  </asp:Button>
-                                
-                                                </ItemTemplate>
-                                                </asp:TemplateField>
-                                                
-                                             </Columns>
-                                      </asp:GridView>
-                                      <br />
-                                  </div>
-        </div>
-            <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
-    <script src="js/global.js"></script>
         </div>
     </form>
 </body>

@@ -145,6 +145,50 @@ namespace ClassLogicaNegocios
         }
 
         //editar registro
+
+        public List<EntidadProfesor> ListaProfesores(string id, ref string msj_salida)
+        {
+            SqlConnection conexion = null;
+
+            string query = "select * from Profesor where  ID_Profe = " + id + ";";
+            conexion = objectoDeAcceso.AbrirConexion(ref msj_salida);
+
+            SqlDataReader ObtenerDatos = null;
+
+            ObtenerDatos = objectoDeAcceso.ConsultarReader(query, conexion, ref msj_salida);
+
+            List<EntidadProfesor> lista = new List<EntidadProfesor>();
+
+
+            if (ObtenerDatos != null)
+            {
+                while (ObtenerDatos.Read())
+                {
+                    lista.Add(new EntidadProfesor
+                    {
+                        id_Profe = (short)ObtenerDatos[0],
+                        RegistroEmpleado = (int)ObtenerDatos[1],
+                        Nombre = (string)ObtenerDatos[2],
+                        ApellidoP = (string)ObtenerDatos[3],
+                        ApellidoM = (string)ObtenerDatos[4],
+                        Genero = (string)ObtenerDatos[5],
+                        Categoria = (string)ObtenerDatos[6],
+                        Correo = (string)ObtenerDatos[7],
+                        Celular = (string)ObtenerDatos[8],
+                        F_EdoCivil = (byte)ObtenerDatos[9]
+                    });
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+            conexion.Close();
+            conexion.Dispose();
+
+            return lista;
+
+        }
         public Boolean UpdateProfesor(EntidadProfesor nuevo, string id, ref string result)
         {
             SqlParameter[] parametros = new SqlParameter[9];
@@ -228,6 +272,31 @@ namespace ClassLogicaNegocios
             salida = objectoDeAcceso.ModificaParametros(sentencia1, objectoDeAcceso.AbrirConexion(ref result), ref result, parametros);
 
             return salida;
+        }
+
+        //Obtener profesores en grid
+        public DataTable ObtenerProfesores(ref string msj_salida)
+        {
+
+            string query = "select ID_Profe as Codigo, Nombre, Ap_pat as Apellido_Paterno, Ap_Mat as Apellido_Materno, Genero, Categoria, Correo, Celular, Estado as Estado_Civil from Profesor inner join EstadoCivil on F_EdoCivil=Id_Edo";
+
+            DataSet ObtencionCarreras = null;
+            DataTable Datos_salida = null;
+            ObtencionCarreras = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
+
+            if (ObtencionCarreras != null)
+            {
+                Datos_salida = ObtencionCarreras.Tables[0];
+                if (Datos_salida.Rows.Count == 0)
+                {
+                    //La consulta es correcta pero el DataSet no está
+                    //devolviendo registros
+
+                }
+
+            }
+
+            return Datos_salida;
         }
 
 

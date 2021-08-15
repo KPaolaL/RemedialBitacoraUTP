@@ -20,6 +20,12 @@ namespace RemedialBitacora.Profesor
             {
                 objlogProf = new LogicaProfesor();
                 Session["objlogProf"] = objlogProf;
+                string msj = "";
+                GridView1.DataSource = objlogProf.ObtenerProfesores(ref msj);
+                if (GridView1.DataSource != null)
+                {
+                    GridView1.DataBind();
+                }
             }
             else
             {
@@ -42,6 +48,8 @@ namespace RemedialBitacora.Profesor
 
 
         }
+
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -75,7 +83,33 @@ namespace RemedialBitacora.Profesor
 
         }
 
+        protected void EliminarProfesor (object sender, EventArgs e)
+        {
+            string msj = "";
+            string x = ((Button)sender).CommandArgument;
+            string id = x.ToString();
+            objlogProf.DeleteProfe(id, ref msj);
+
+            GridView1.DataSource = objlogProf.ObtenerProfesores(ref msj);
+            if (GridView1.DataSource != null)
+            {
+                GridView1.DataBind();
+            }
+        }
+
+        protected void EditarProfesor(object sender, EventArgs e)
+        {
+            string x = ((Button)sender).CommandArgument;
+            Session["id_seleccionado"] = Convert.ToInt32(x);
+            Server.Transfer("EditarProfe.aspx");
+        }
+
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

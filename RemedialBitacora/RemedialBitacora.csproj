@@ -79,6 +79,7 @@
     <Content Include="css\main.css" />
     <Content Include="js\global.js" />
     <Content Include="Profesor\AgregaProfesor.aspx" />
+    <Content Include="Profesor\EditarProfe.aspx" />
     <Content Include="vendor\datepicker\daterangepicker.css" />
     <Content Include="vendor\datepicker\daterangepicker.js" />
     <Content Include="vendor\datepicker\moment.min.js" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="Profesor\AgregaProfesor.aspx.designer.cs">
       <DependentUpon>AgregaProfesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\EditarProfe.aspx.cs">
+      <DependentUpon>EditarProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\EditarProfe.aspx.designer.cs">
+      <DependentUpon>EditarProfe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
