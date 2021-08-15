@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemedialBitacora", "Remedia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassCapaAccesoSQL", "ClassCapaAccesoSQL\ClassCapaAccesoSQL.csproj", "{99A7F7A5-8A48-4F1D-8A89-868DFE823B16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassCapaEntidades", "ClassCapaEntidades\ClassCapaEntidades.csproj", "{925AABA9-439C-49E3-8A13-DAB9A9953FA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{99A7F7A5-8A48-4F1D-8A89-868DFE823B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99A7F7A5-8A48-4F1D-8A89-868DFE823B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99A7F7A5-8A48-4F1D-8A89-868DFE823B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925AABA9-439C-49E3-8A13-DAB9A9953FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925AABA9-439C-49E3-8A13-DAB9A9953FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925AABA9-439C-49E3-8A13-DAB9A9953FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925AABA9-439C-49E3-8A13-DAB9A9953FA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
