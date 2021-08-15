@@ -230,7 +230,7 @@ namespace ClassLogicaNegocios
 
             return salida;
         }
-
+        
 
     }
 }
