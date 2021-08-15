@@ -14,7 +14,7 @@ namespace ClassLogicaNegocios
     {
         private ClassAccesoSQL objectoDeAcceso = new ClassAccesoSQL("Server=LAPTOP-SFMTQ4SG\\SQLEXPRESS;Initial Catalog=Bitacora2021LabsUTP;" +
                                                                     "Integrated Security=true;");
-        public Boolean InsertaProf(EntidadProfesor nuevo, ref string mensajeSalida)
+        public Boolean InsertaProf(EntidadProfesor nuevo, EntidadEstadoCiv EstadoCiv, ref string mensajeSalida)
         {
             SqlParameter[] parametros = new SqlParameter[9];
             parametros[0] = new SqlParameter
@@ -84,13 +84,13 @@ namespace ClassLogicaNegocios
             parametros[8] = new SqlParameter
             {
                 ParameterName = "F_EdoCivil",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 20,
+                SqlDbType = SqlDbType.Int,
                 Direction = ParameterDirection.Input,
-                Value = nuevo.F_EdoCivil
+                Value = EstadoCiv.idEdo
+
             };
 
-            string sentencia = "insert into Profesor values(@RegistroEmpleado, @Nombre, @Ap_pat, @Ap_Mat, @Genero, @Categoria, @Correo @Celular, @F_EdoCivil)";
+            string sentencia = "insert into Profesor values(@RegistroEmpleado, @Nombre, @Ap_pat, @Ap_Mat, @Genero, @Categoria, @Correo, @Celular, @F_EdoCivil)";
             Boolean salida = false;
 
             salida = objectoDeAcceso.OperacionesSQLConParametros(sentencia, objectoDeAcceso.AbrirConexion(ref mensajeSalida), ref mensajeSalida, parametros);
@@ -116,9 +116,8 @@ namespace ClassLogicaNegocios
                 {
                     s.Add(new EntidadEstadoCiv
                     {
-
+                        idEdo = (byte)obtenDatos[0],
                         Estado = (string)obtenDatos[1]
-
                     });
                 }
 

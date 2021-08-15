@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassCapaAccesoSQL">
+      <HintPath>..\ClassCapaAccesoSQL\bin\Debug\ClassCapaAccesoSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassCapaEntidades">
+      <HintPath>..\ClassCapaEntidades\bin\Debug\ClassCapaEntidades.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassLogicaNegocios">
+      <HintPath>..\ClassLogicaNegocios\bin\Debug\ClassLogicaNegocios.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
