@@ -169,7 +169,51 @@ namespace ClassCapaAccesoSQL
             }
             return salida;
         }
+        public Boolean ModificaParametros(string sentenciaSQL, SqlConnection cn,
+                                                  ref string mensaje,
+                                                  SqlParameter[] parametros)
+        {
+            Boolean salida = false;
+            SqlCommand vocho = null;
 
+            if (cn != null)
+            {
+                vocho = new SqlCommand();
+                vocho.CommandText = sentenciaSQL;
+                // agregar parametros
+                //vocho.Parameters.Add(parametro1);
+                //vocho.Parameters.Add(parametro2);
+                foreach (SqlParameter p in parametros)
+                {
+                    vocho.Parameters.Add(p);
+                }
+
+                vocho.Connection = cn;
+                try
+                {
+                    vocho.ExecuteNonQuery();
+                    mensaje = "Modficiación correcta con Parametros";
+                    salida = true;
+                }
+                catch (Exception w)
+                {
+                    mensaje = w.Message + "";
+                    salida = false;
+
+
+
+                }
+                cn.Close();
+                cn.Dispose();
+            }
+            else
+            {
+                mensaje = "No hay coneción a la BD :(";
+            }
+
+            return salida;
+
+        }
 
 
         //Funcion que permite hacer modificaciones de forma generica (con parámetros)

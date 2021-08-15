@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{925AABA9-439C-49E3-8A13-DAB9A9953FA2}</ProjectGuid>
+    <ProjectGuid>{81F8903E-CB1C-445D-9C02-63B04133FCEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassCapaEntidades</RootNamespace>
-    <AssemblyName>ClassCapaEntidades</AssemblyName>
+    <RootNamespace>ClassLogicaNegocios</RootNamespace>
+    <AssemblyName>ClassLogicaNegocios</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassCapaAccesoSQL">
+      <HintPath>..\ClassCapaAccesoSQL\bin\Debug\ClassCapaAccesoSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassCapaEntidades">
+      <HintPath>..\ClassCapaEntidades\bin\Debug\ClassCapaEntidades.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,13 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntidadAsignaProfeMatCuatri.cs" />
-    <Compile Include="EntidadEstadoCiv.cs" />
-    <Compile Include="EntidadGradoEspecialidad.cs" />
-    <Compile Include="EntidadGrupoCuatrimestre.cs" />
-    <Compile Include="EntidadMateria.cs" />
-    <Compile Include="EntidadPerfilProfe.cs" />
-    <Compile Include="EntidadProfesor.cs" />
+    <Compile Include="LogicaAsignaprofeMateriaCuatri.cs" />
+    <Compile Include="LogicaGradoEspecialidad.cs" />
+    <Compile Include="LogicaPerfilProfe.cs" />
+    <Compile Include="LogicaProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
