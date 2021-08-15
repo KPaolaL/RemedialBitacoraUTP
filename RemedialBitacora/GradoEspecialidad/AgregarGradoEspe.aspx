@@ -87,7 +87,7 @@
                     <div>
                             Mostrar registros que fueron agregados<br />
                             <asp:GridView ID="GridView1" runat="server">
-                              <%--  <Columns>
+                                <Columns>
                                 <asp:templateField headertext="Editar dato" SortExpression="[Id Especifico]">
                                     <itemtemplate>
                                     <asp:Button  OnClick="EditarDato"  ID='LinkButton1' runat="server" Text="Editar datos" CommandArgument='<%# Bind("[Codigo]")%>' >
@@ -99,7 +99,7 @@
                                 
                                 </ItemTemplate>
                                 </asp:TemplateField>
-                             </Columns>--%>
+                             </Columns>
                             </asp:GridView>
                             <br />
                     </div>

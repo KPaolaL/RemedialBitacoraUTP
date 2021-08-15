@@ -92,15 +92,13 @@ namespace ClassLogicaNegocios
             ObtenerDatos = objectoDeAcceso.ConsultarReader(query, conexion, ref msj_salida);
 
             List < EntidadGradoEspecialidad> lista = new List<EntidadGradoEspecialidad>();
-
-
             if (ObtenerDatos != null)
             {
                 while (ObtenerDatos.Read())
                 {
                     lista.Add(new EntidadGradoEspecialidad
                     {
-                        id_Grado = (int)ObtenerDatos[0],
+                        id_Grado = (short)ObtenerDatos[0],
                         Titulo = (string)ObtenerDatos[1],
                         Institucion = (string)ObtenerDatos[2],
                         Pais = (string)ObtenerDatos[3],
@@ -114,7 +112,6 @@ namespace ClassLogicaNegocios
             }
             conexion.Close();
             conexion.Dispose();
-
             return lista;
         }
             //editar registro
@@ -169,11 +166,11 @@ namespace ClassLogicaNegocios
             return salida;
         }
 
-        //Obtener profesores en grid
+        //Obtener grado en grid
         public DataTable ObtenerGrado(ref string msj_salida)
         {
 
-            string query = "select ID_Grado as Id, Titulo as Titulo, Institucion as Institucion, Pais as Pais, Extra as Extra from GradoEspecialidad"; ; 
+            string query = "select Id_Grado as Codigo, Titulo as Titulo, Institucion as Institucion, Pais as Pais, Extra as Extra from GradoEspecialidad;"; 
 
             DataSet obtengrado = null;
             DataTable Datos_salida = null;

@@ -148,7 +148,6 @@ namespace ClassLogicaNegocios
         public List<EntidadProfesor> ListaProfesores(string id, ref string msj_salida)
         {
             SqlConnection conexion = null;
-
             string query = "select * from Profesor where  ID_Profe = " + id + ";";
             conexion = objectoDeAcceso.AbrirConexion(ref msj_salida);
 

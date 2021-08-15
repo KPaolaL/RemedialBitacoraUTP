@@ -18,14 +18,14 @@
     <form id="form1" runat="server">
      <div style="background-color:aliceblue">
          <center> 
-        <center><asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
                 <Items>
-                    <asp:MenuItem NavigateUrl="inicio.aspx" Text="Inicio" Value="1"/>
-                    <asp:MenuItem NavigateUrl="GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
-                    <asp:MenuItem NavigateUrl="PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
-                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
+                    <asp:MenuItem NavigateUrl="../inicio.aspx" Text="Inicio" Value="1"/>
+                    <asp:MenuItem NavigateUrl="../GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
+                    <asp:MenuItem NavigateUrl="../PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
+                    <asp:MenuItem NavigateUrl="../AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
                 </Items>
-            </asp:Menu> </center>
+            </asp:Menu> 
         <div> 
              <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
                     <div class="wrapper wrapper--w680">
@@ -87,7 +87,7 @@
                                         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                                       </div>
                                       </div>
-                                      <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agragar profesor" />
+                                      <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Guardar cambios" />
                                       <br />
                                       </div>
                                  </div>
