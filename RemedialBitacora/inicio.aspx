@@ -57,7 +57,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <center> </center><asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
+            <center><asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
                 <Items>
                     <asp:MenuItem NavigateUrl="Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="1"/>
                     <asp:MenuItem NavigateUrl="GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>

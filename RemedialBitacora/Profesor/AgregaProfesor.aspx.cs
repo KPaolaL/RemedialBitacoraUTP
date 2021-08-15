@@ -113,5 +113,10 @@ namespace RemedialBitacora.Profesor
         {
 
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("inicio.aspx");
+        }
     }
 }

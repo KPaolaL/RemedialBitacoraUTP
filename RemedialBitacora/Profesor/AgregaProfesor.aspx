@@ -12,9 +12,25 @@
         <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all" />
         <link href="css/main.css" rel="stylesheet"  media="all" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            background-color: #CC99FF;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div style="background-color:antiquewhite" >
+        <center>
+           <center><asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
+                <Items>
+                    <asp:MenuItem NavigateUrl="Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="1"/>
+                    <asp:MenuItem NavigateUrl="GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
+                    <asp:MenuItem NavigateUrl="PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
+                  
+                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
+                </Items>
+            </asp:Menu> </center>
         <div>
             <h3>Registro de profesores</h3>
                               <div class="row row-space">
@@ -77,13 +93,13 @@
                                         </div>
                                    </div>
                                       <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Agragar profesor" />
-                                      <asp:Button ID="Button2" runat="server" Text="Regresar" />
+                                      <asp:Button ID="Button2" runat="server" Text="Regresar" OnClick="Button2_Click" />
                                       <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
                                       <br />
                                       <br />
                                       <br />
                                       Mostrar registros que fueron agregados de los profesores
-                                      <asp:GridView ID="GridView1" runat="server">
+                                      <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1">
                                           <Columns>
                                                  <asp:templatefield headertext="Editar" SortExpression="[Id Especifico]">
                                                 <itemtemplate >
@@ -101,6 +117,8 @@
                                       <br />
                                   </div>
         </div>
+            </center>
+            </div>
             <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/datepicker/moment.min.js"></script>
