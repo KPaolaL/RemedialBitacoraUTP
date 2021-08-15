@@ -145,7 +145,6 @@ namespace ClassLogicaNegocios
         }
 
         //editar registro
-
         public List<EntidadProfesor> ListaProfesores(string id, ref string msj_salida)
         {
             SqlConnection conexion = null;
@@ -295,10 +294,7 @@ namespace ClassLogicaNegocios
                 }
 
             }
-
             return Datos_salida;
         }
-
-
     }
 }

@@ -79,7 +79,7 @@ namespace RemedialBitacora.Profesor
             Boolean recibe = false;
             recibe = objlogProf.InsertaProf(temp, EstadoCiv, ref resp);
             //string mensaje = "";
-            TextBox1.Text = resp;
+          //  TextBox1.Text = resp;
 
         }
 

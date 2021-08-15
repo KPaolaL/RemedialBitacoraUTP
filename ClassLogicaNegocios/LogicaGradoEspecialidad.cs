@@ -68,6 +68,7 @@ namespace ClassLogicaNegocios
 
         }
 
+        
         //borrar registro
         public Boolean deleteGrado(string id, ref string result)
         {
@@ -79,6 +80,44 @@ namespace ClassLogicaNegocios
         }
 
         //editar registro
+        public List<EntidadGradoEspecialidad> ListaGrado(string id, ref string msj_salida)
+        {
+            SqlConnection conexion = null;
+
+            string query = "select * from GradoEspecialidad where Id_Grado = " + id + ";";
+            conexion = objectoDeAcceso.AbrirConexion(ref msj_salida);
+
+            SqlDataReader ObtenerDatos = null;
+
+            ObtenerDatos = objectoDeAcceso.ConsultarReader(query, conexion, ref msj_salida);
+
+            List < EntidadGradoEspecialidad> lista = new List<EntidadGradoEspecialidad>();
+
+
+            if (ObtenerDatos != null)
+            {
+                while (ObtenerDatos.Read())
+                {
+                    lista.Add(new EntidadGradoEspecialidad
+                    {
+                        id_Grado = (int)ObtenerDatos[0],
+                        Titulo = (string)ObtenerDatos[1],
+                        Institucion = (string)ObtenerDatos[2],
+                        Pais = (string)ObtenerDatos[3],
+                        Extra= (string)ObtenerDatos[4]
+                    });
+                }
+            }
+            else
+            {
+                lista = null;
+            }
+            conexion.Close();
+            conexion.Dispose();
+
+            return lista;
+        }
+            //editar registro
         public Boolean UpdateClient(EntidadGradoEspecialidad nuevo, string id, ref string result)
         {
             SqlParameter[] parametros = new SqlParameter[4];
@@ -130,5 +169,27 @@ namespace ClassLogicaNegocios
             return salida;
         }
 
+        //Obtener profesores en grid
+        public DataTable ObtenerGrado(ref string msj_salida)
+        {
+
+            string query = "select ID_Grado as Id, Titulo as Titulo, Institucion as Institucion, Pais as Pais, Extra as Extra from GradoEspecialidad"; ; 
+
+            DataSet obtengrado = null;
+            DataTable Datos_salida = null;
+            obtengrado = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
+
+            if (obtengrado != null)
+            {
+                Datos_salida = obtengrado.Tables[0];
+                if (Datos_salida.Rows.Count == 0)
+                {
+                    //La consulta es correcta pero el DataSet no está
+                    //devolviendo registros
+
+                }
+            }
+            return Datos_salida;
+        }
     }
 }

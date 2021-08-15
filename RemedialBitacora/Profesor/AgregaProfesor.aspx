@@ -20,17 +20,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
         <div style="background-color:antiquewhite" >
-        <center>
-           <center><asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
+    
+           <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BorderStyle="Outset" CssClass="auto-style271 auto-style272 auto-style273 auto-style274">
                 <Items>
-                    <asp:MenuItem NavigateUrl="Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="1"/>
-                    <asp:MenuItem NavigateUrl="GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
-                    <asp:MenuItem NavigateUrl="PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
-                  
-                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
+                   <asp:MenuItem NavigateUrl="../inicio.aspx" Text="Regresar al inicio" Value="1"/>
+                    <asp:MenuItem NavigateUrl="../GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
+                    <asp:MenuItem NavigateUrl="../PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
+                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="4"/>   
                 </Items>
-            </asp:Menu> </center>
+            </asp:Menu>
         <div>
             <h3>Registro de profesores</h3>
                               <div class="row row-space">
@@ -98,6 +98,7 @@
                                       <br />
                                       <br />
                                       <br />
+
                                       Mostrar registros que fueron agregados de los profesores
                                       <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1">
                                           <Columns>
