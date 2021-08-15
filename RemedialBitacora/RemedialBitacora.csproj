@@ -76,8 +76,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx" />
+    <Content Include="AsignaciondeProfeMateria\EditAsig.aspx" />
     <Content Include="css\main.css" />
+    <Content Include="GradoEspecialidad\AgregarGradoEspe.aspx" />
+    <Content Include="GradoEspecialidad\EditGrado.aspx" />
+    <Content Include="inicio.aspx" />
     <Content Include="js\global.js" />
+    <Content Include="PerfilProfesor\AgregaPerfilProfe.aspx" />
+    <Content Include="PerfilProfesor\EditPerfilProfe.aspx" />
     <Content Include="Profesor\AgregaProfesor.aspx" />
     <Content Include="Profesor\EditarProfe.aspx" />
     <Content Include="vendor\datepicker\daterangepicker.css" />
@@ -97,6 +104,55 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx.cs">
+      <DependentUpon>AgregaAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx.designer.cs">
+      <DependentUpon>AgregaAsignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\EditAsig.aspx.cs">
+      <DependentUpon>EditAsig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\EditAsig.aspx.designer.cs">
+      <DependentUpon>EditAsig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GradoEspecialidad\AgregarGradoEspe.aspx.cs">
+      <DependentUpon>AgregarGradoEspe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradoEspecialidad\AgregarGradoEspe.aspx.designer.cs">
+      <DependentUpon>AgregarGradoEspe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GradoEspecialidad\EditGrado.aspx.cs">
+      <DependentUpon>EditGrado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradoEspecialidad\EditGrado.aspx.designer.cs">
+      <DependentUpon>EditGrado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilProfesor\AgregaPerfilProfe.aspx.cs">
+      <DependentUpon>AgregaPerfilProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilProfesor\AgregaPerfilProfe.aspx.designer.cs">
+      <DependentUpon>AgregaPerfilProfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilProfesor\EditPerfilProfe.aspx.cs">
+      <DependentUpon>EditPerfilProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilProfesor\EditPerfilProfe.aspx.designer.cs">
+      <DependentUpon>EditPerfilProfe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profesor\AgregaProfesor.aspx.cs">
       <DependentUpon>AgregaProfesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
