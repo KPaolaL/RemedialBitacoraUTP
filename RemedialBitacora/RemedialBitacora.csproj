@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClassCapaAccesoSQL">
+      <HintPath>..\ClassCapaAccesoSQL\bin\Debug\ClassCapaAccesoSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassCapaEntidades">
+      <HintPath>..\ClassCapaEntidades\bin\Debug\ClassCapaEntidades.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassLogicaNegocios">
+      <HintPath>..\ClassLogicaNegocios\bin\Debug\ClassLogicaNegocios.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,13 +76,120 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx" />
+    <Content Include="AsignaciondeProfeMateria\EditAsig.aspx" />
+    <Content Include="assets\css\magister.css" />
+    <Content Include="assets\images\bita.jpg" />
+    <Content Include="assets\images\body1.jpg" />
+    <Content Include="assets\images\body2.jpg" />
+    <Content Include="assets\images\body3.jpg" />
+    <Content Include="assets\images\body4.jpg" />
+    <Content Include="assets\images\body5.JPG" />
+    <Content Include="assets\images\gt_favicon.png" />
+    <Content Include="assets\js\magister.js" />
+    <Content Include="assets\js\modernizr.custom.72241.js" />
+    <Content Include="css\main.css" />
+    <Content Include="GradoEspecialidad\AgregarGradoEspe.aspx" />
+    <Content Include="GradoEspecialidad\EditGrado.aspx" />
+    <Content Include="inicio.aspx" />
+    <Content Include="js\global.js" />
+    <Content Include="PerfilProfesor\AgregaPerfilProfe.aspx" />
+    <Content Include="PerfilProfesor\EditPerfilProfe.aspx" />
+    <Content Include="Profesor\AgregaProfesor.aspx" />
+    <Content Include="Profesor\EditarProfe.aspx" />
+    <Content Include="vendor\datepicker\daterangepicker.css" />
+    <Content Include="vendor\datepicker\daterangepicker.js" />
+    <Content Include="vendor\datepicker\moment.min.js" />
+    <Content Include="vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\font-awesome-4.7\HELP-US-OUT.txt" />
+    <Content Include="vendor\jquery\jquery.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="vendor\select2\select2.min.css" />
+    <Content Include="vendor\select2\select2.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx.cs">
+      <DependentUpon>AgregaAsignacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\AgregaAsignacion.aspx.designer.cs">
+      <DependentUpon>AgregaAsignacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\EditAsig.aspx.cs">
+      <DependentUpon>EditAsig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignaciondeProfeMateria\EditAsig.aspx.designer.cs">
+      <DependentUpon>EditAsig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GradoEspecialidad\AgregarGradoEspe.aspx.cs">
+      <DependentUpon>AgregarGradoEspe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradoEspecialidad\AgregarGradoEspe.aspx.designer.cs">
+      <DependentUpon>AgregarGradoEspe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GradoEspecialidad\EditGrado.aspx.cs">
+      <DependentUpon>EditGrado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradoEspecialidad\EditGrado.aspx.designer.cs">
+      <DependentUpon>EditGrado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilProfesor\AgregaPerfilProfe.aspx.cs">
+      <DependentUpon>AgregaPerfilProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilProfesor\AgregaPerfilProfe.aspx.designer.cs">
+      <DependentUpon>AgregaPerfilProfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilProfesor\EditPerfilProfe.aspx.cs">
+      <DependentUpon>EditPerfilProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilProfesor\EditPerfilProfe.aspx.designer.cs">
+      <DependentUpon>EditPerfilProfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\AgregaProfesor.aspx.cs">
+      <DependentUpon>AgregaProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\AgregaProfesor.aspx.designer.cs">
+      <DependentUpon>AgregaProfesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\EditarProfe.aspx.cs">
+      <DependentUpon>EditarProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\EditarProfe.aspx.designer.cs">
+      <DependentUpon>EditarProfe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
