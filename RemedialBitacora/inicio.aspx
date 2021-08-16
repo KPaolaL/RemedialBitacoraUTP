@@ -74,6 +74,7 @@
 				                <h1 class="auto-style2"><strong>Bitacora Profesores</strong></h1>
 				                <h2 class="auto-style1"><strong>Registrate como profesor</strong></h2>
                                     <img src="assets/images/bita.jpg" alt="" />
+                                    <h2>Realizado por Karla Paola Lopez Meza</h2>
 				                </div>
 		                </div> <!-- /col -->
 		        </div> <!-- /row -->
