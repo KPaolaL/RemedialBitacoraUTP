@@ -212,6 +212,29 @@ namespace ClassLogicaNegocios
             return s;
         }
 
+        //Obtener profesores en grid
+        public DataTable ObtenerProfe(ref string msj_salida)
+        {
+            //string sentencia = "insert into PerfilProfe values(@F_Profe, @F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
+
+            string query = "select Id_Perfil as Codigo, F_Profe as F_Profe, F_Grado as F_Grado, Estado as Estado, FechaObtencion as FechaOrientacion, Evidencia as Evidencia from PerfilProfe  ";
+            DataSet ObtencionCarreras = null;
+            DataTable Datos_salida = null;
+            ObtencionCarreras = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
+
+            if (ObtencionCarreras != null)
+            {
+                Datos_salida = ObtencionCarreras.Tables[0];
+                if (Datos_salida.Rows.Count == 0)
+                {
+                    //La consulta es correcta pero el DataSet no está
+                    //devolviendo registros
+
+                }
+
+            }
+            return Datos_salida;
+        }
 
     }
 }

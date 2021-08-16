@@ -19,6 +19,7 @@
         .auto-style275 {
             width: 67px;
         }
+        .auto-style276 {}
     </style>
 </head>
 <body>
@@ -70,7 +71,14 @@
                     </div>
                     <asp:Button ID="Button1" runat="server" Text="Agregar" CssClass="auto-style275" OnClick="Button1_Click"></asp:Button>
 
-                 
+                 <div>
+                     <h2>Mostrar tabla de registros</h2>
+
+                     <asp:GridView ID="GridView1" runat="server" CssClass="auto-style276" Width="245px">
+                     </asp:GridView>
+                     <br />
+
+                 </div>
                     <br />
                     <br />
                     <br />
