@@ -16,15 +16,15 @@ namespace ClassLogicaNegocios
         private ClassAccesoSQL objectoDeAcceso = new ClassAccesoSQL("Server=LAPTOP-SFMTQ4SG\\SQLEXPRESS;Initial Catalog=Bitacora2021LabsUTP;" +
                                                                    "Integrated Security=true;");
 
-        public Boolean InsertaGradoEspe(EntidadPerfilProfe perf, ref string mensajeSalida)
+        public Boolean InsertarPerfil(EntidadPerfilProfe perf, ref string mensajeSalida)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[5];
             //  string otro = "platano";
 
             parametros[0] = new SqlParameter
             {
                 ParameterName = "F_Profe",
-                SqlDbType = SqlDbType.TinyInt,
+                SqlDbType = SqlDbType.SmallInt,
                 Direction = ParameterDirection.Input,
                 Value = perf.F_Profe
             };
@@ -32,7 +32,7 @@ namespace ClassLogicaNegocios
             parametros[1] = new SqlParameter
             {
                 ParameterName = "F_Grado",
-                SqlDbType = SqlDbType.TinyInt,
+                SqlDbType = SqlDbType.SmallInt,
                 Direction = ParameterDirection.Input,
                 Value = perf.F_Grado
             };
@@ -49,8 +49,7 @@ namespace ClassLogicaNegocios
             parametros[3] = new SqlParameter
             {
                 ParameterName = "FechaOrientacion",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 5,
+                SqlDbType = SqlDbType.Date,
                 Direction = ParameterDirection.Input,
                 Value = perf.FechaOrientacion
             };
@@ -62,9 +61,9 @@ namespace ClassLogicaNegocios
                 Direction = ParameterDirection.Input,
                 Value = perf.Evidencia
             };
-
-
-            string sentencia = "insert into PerfilProfe values(@F_Profe,F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
+       
+            
+            string sentencia = "insert into PerfilProfe values(@F_Profe, @F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
             Boolean salida = false;
 
             salida = objectoDeAcceso.OperacionesSQLConParametros(sentencia, objectoDeAcceso.AbrirConexion(ref mensajeSalida),
@@ -73,6 +72,42 @@ namespace ClassLogicaNegocios
 
         }
 
+        public List<EntidadGradoEspecialidad> GetGrado(ref string ms)
+        {
+            SqlConnection conexion = null;
+            string consulta3 = "select * from GradoEspecialidad";
+
+            conexion = objectoDeAcceso.AbrirConexion(ref ms);
+            SqlDataReader obtenDatos = null;
+
+            obtenDatos = objectoDeAcceso.ConsultarReader(consulta3, conexion, ref ms);
+
+            List<EntidadGradoEspecialidad> s = new List<EntidadGradoEspecialidad>();
+
+            if (obtenDatos != null)
+            {
+                while (obtenDatos.Read())
+                {
+                    s.Add(new EntidadGradoEspecialidad
+                    {
+                        id_Grado = (short)obtenDatos[0],
+                        Titulo = (string)obtenDatos[1]
+                    });
+                }
+
+            }
+            else
+            {
+                s = null;
+            }
+
+            conexion.Close();
+            conexion.Dispose();
+
+            return s;
+        }
+
+      
         //borrar registro
         public Boolean DeleteProfe(string id, ref string result)
         {
@@ -139,6 +174,42 @@ namespace ClassLogicaNegocios
             salida = objectoDeAcceso.ModificaParametros(sentencia1, objectoDeAcceso.AbrirConexion(ref result), ref result, parametros);
 
             return salida;
+        }
+
+        public List<EntidadProfesor> GetProfe(ref string ms)
+        {
+            SqlConnection conexion = null;
+            string consulta3 = "Select * from Profesor";
+
+            conexion = objectoDeAcceso.AbrirConexion(ref ms);
+            SqlDataReader obtenDatos = null;
+
+            obtenDatos = objectoDeAcceso.ConsultarReader(consulta3, conexion, ref ms);
+
+            List<EntidadProfesor> s = new List<EntidadProfesor>();
+
+            if (obtenDatos != null)
+            {
+                while (obtenDatos.Read())
+                {
+                    s.Add(new EntidadProfesor
+                    {
+                        id_Profe = (short)obtenDatos[0],
+                        Nombre = (string)obtenDatos[2]
+                        
+                    });
+                }
+
+            }
+            else
+            {
+                s = null;
+            }
+
+            conexion.Close();
+            conexion.Dispose();
+
+            return s;
         }
 
 

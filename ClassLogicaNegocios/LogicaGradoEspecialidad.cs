@@ -119,7 +119,6 @@ namespace ClassLogicaNegocios
         {
             SqlParameter[] parametros = new SqlParameter[4];
             //  string otro = "platano";
-
             parametros[0] = new SqlParameter
             {
                 ParameterName = "titulo",
@@ -128,7 +127,6 @@ namespace ClassLogicaNegocios
                 Direction = ParameterDirection.Input,
                 Value = nuevo.Titulo
             };
-
             parametros[1] = new SqlParameter
             {
                 ParameterName = "institucion",
@@ -137,7 +135,6 @@ namespace ClassLogicaNegocios
                 Direction = ParameterDirection.Input,
                 Value = nuevo.Institucion
             };
-
             parametros[2] = new SqlParameter
             {
                 ParameterName = "pais",
@@ -145,7 +142,6 @@ namespace ClassLogicaNegocios
                 Size = 40,
                 Direction = ParameterDirection.Input,
                 Value = nuevo.Pais
-
             };
             parametros[3] = new SqlParameter
             {
@@ -155,23 +151,17 @@ namespace ClassLogicaNegocios
                 Direction = ParameterDirection.Input,
                 Value = nuevo.Extra
             };
-
-
             //string sentencia = "insert into GradoEspecialidad values(@titulo, @institucion, @pais, @extra);";
-            string sentencia1 = "UPDATE GradoEspecialidad SET titulo = @titulo, institucion = @insititucion, pais = @pais, extra = @extra  WHERE Id_Grado = " + id + ";";
+            string sentencia1 = "UPDATE GradoEspecialidad SET titulo = @titulo, institucion = @institucion, pais = @pais, extra = @extra  WHERE Id_Grado = " + id + ";";
             Boolean salida = false;
-
             salida = objectoDeAcceso.ModificaParametros(sentencia1, objectoDeAcceso.AbrirConexion(ref result), ref result, parametros);
-
             return salida;
         }
 
         //Obtener grado en grid
         public DataTable ObtenerGrado(ref string msj_salida)
         {
-
             string query = "select Id_Grado as Codigo, Titulo as Titulo, Institucion as Institucion, Pais as Pais, Extra as Extra from GradoEspecialidad;"; 
-
             DataSet obtengrado = null;
             DataTable Datos_salida = null;
             obtengrado = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
@@ -188,5 +178,42 @@ namespace ClassLogicaNegocios
             }
             return Datos_salida;
         }
+
+        public List<EntidadGradoEspecialidad> GetGrado(ref string ms)
+        {
+            SqlConnection conexion = null;
+            string consulta3 = "select * from GradoEspecialidad";
+
+            conexion = objectoDeAcceso.AbrirConexion(ref ms);
+            SqlDataReader obtenDatos = null;
+
+            obtenDatos = objectoDeAcceso.ConsultarReader(consulta3, conexion, ref ms);
+
+            List<EntidadGradoEspecialidad> s = new List<EntidadGradoEspecialidad>();
+
+            if (obtenDatos != null)
+            {
+                while (obtenDatos.Read())
+                {
+                    s.Add(new EntidadGradoEspecialidad
+                    {
+                        id_Grado = (short)obtenDatos[0],
+                        Titulo = obtenDatos[1].ToString(),
+
+                    });
+                }
+
+            }
+            else
+            {
+                s = null;
+            }
+
+            conexion.Close();
+            conexion.Dispose();
+
+            return s;
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregaAsignacion.aspx.cs" Inherits="RemedialBitacora.AsignaciondeProfeMateria.AgregaAsignacion" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregaAsignacion.aspx.cs" Inherits="RemedialBitacora.AsignaciondeProfeMateria.AgregaAsignacion" %>
 
 <!DOCTYPE html>
 
