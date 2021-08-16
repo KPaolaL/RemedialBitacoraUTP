@@ -9,9 +9,9 @@ namespace ClassCapaEntidades
     public class EntidadAsignaProfeMatCuatri
     {
         public int id_AsignaPro { set; get; }
-        public string F_Profe { set; get; }
-        public string F_Materia { set; get; }
-        public string F_GrupoCuatri { set; get; }
+        public short F_Profe { set; get; }
+        public short F_Materia { set; get; }
+        public int F_GrupoCuatri { set; get; }
         public string Extra { set; get; }
     }
 }

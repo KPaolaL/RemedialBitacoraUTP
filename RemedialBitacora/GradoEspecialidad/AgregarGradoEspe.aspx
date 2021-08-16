@@ -81,7 +81,6 @@
                 <div>
                             <asp:Button ID="Button1" runat="server" Text="Insertar" OnClick="Button1_Click"></asp:Button>
                     
-                            <asp:Button ID="Button2" runat="server" Text="Regresar"></asp:Button>
                             <br />
                             <br />
                     <div>

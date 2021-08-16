@@ -8,7 +8,7 @@ namespace ClassCapaEntidades
 {
     public class EntidadMateria
     {
-        public int id_Materia { set; get; }
+        public short id_Materia { set; get; }
         public string NombreMateria { set; get; }
         public int HorasSemana { set; get; }
         public string Extra { set; get; }

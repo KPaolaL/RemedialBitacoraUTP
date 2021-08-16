@@ -20,8 +20,7 @@
                    <asp:MenuItem NavigateUrl="../inicio.aspx" Text="Regresar al inicio" Value="1"/>
                     <asp:MenuItem NavigateUrl="../GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
                     <asp:MenuItem NavigateUrl="../PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
-                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="4"/>   
-                </Items>
+                 </Items>
             </asp:Menu>
                  <div>
                      <asp:Label ID="Label1" runat="server" Text="Selecciona profesor"></asp:Label>
@@ -46,6 +45,11 @@
                      <asp:Label ID="Label4" runat="server" Text="Extra"></asp:Label>
                      <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                  </div>
+        <div>
+
+            <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClick="Button1_Click" />
+
+        </div>
         <div>
             <h2>Muestra registros agregados</h2>
             <p>
