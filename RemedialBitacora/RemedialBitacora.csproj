@@ -43,13 +43,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassCapaAccesoSQL">
+    <Reference Include="ClassCapaAccesoSQL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ClassCapaAccesoSQL\bin\Debug\ClassCapaAccesoSQL.dll</HintPath>
     </Reference>
-    <Reference Include="ClassCapaEntidades">
+    <Reference Include="ClassCapaEntidades, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ClassCapaEntidades\bin\Debug\ClassCapaEntidades.dll</HintPath>
     </Reference>
-    <Reference Include="ClassLogicaNegocios">
+    <Reference Include="ClassLogicaNegocios, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ClassLogicaNegocios\bin\Debug\ClassLogicaNegocios.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
