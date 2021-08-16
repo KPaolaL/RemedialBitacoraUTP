@@ -48,10 +48,10 @@ namespace ClassLogicaNegocios
             };
             parametros[3] = new SqlParameter
             {
-                ParameterName = "FechaOrientacion",
+                ParameterName = "FechaObtencion",
                 SqlDbType = SqlDbType.Date,
                 Direction = ParameterDirection.Input,
-                Value = perf.FechaOrientacion
+                Value = perf.FechaObtencion
             };
             parametros[4] = new SqlParameter
             {
@@ -63,7 +63,7 @@ namespace ClassLogicaNegocios
             };
        
             
-            string sentencia = "insert into PerfilProfe values(@F_Profe, @F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
+            string sentencia = "insert into PerfilProfe values(@F_Profe, @F_Grado, @Estado, @FechaObtencion, @Evidencia);";
             Boolean salida = false;
 
             salida = objectoDeAcceso.OperacionesSQLConParametros(sentencia, objectoDeAcceso.AbrirConexion(ref mensajeSalida),
@@ -109,7 +109,7 @@ namespace ClassLogicaNegocios
 
       
         //borrar registro
-        public Boolean DeleteProfe(string id, ref string result)
+        public Boolean DeletePerfil(string id, ref string result)
         {
 
             string sentencia = "delete from PerfilProfe where Id_Perfil = " + id + ";";
@@ -120,7 +120,7 @@ namespace ClassLogicaNegocios
         }
 
         //editar registro
-        public Boolean UpdateProfesor(EntidadPerfilProfe perf, string id, ref string result)
+        public Boolean UpdatePerfil(EntidadPerfilProfe perf, string id, ref string result)
         {
             SqlParameter[] parametros = new SqlParameter[4];
             //  string otro = "platano";
@@ -152,11 +152,11 @@ namespace ClassLogicaNegocios
             };
             parametros[3] = new SqlParameter
             {
-                ParameterName = "FechaOrientacion",
+                ParameterName = "FechaObtencion",
                 SqlDbType = SqlDbType.VarChar,
                 Size = 5,
                 Direction = ParameterDirection.Input,
-                Value = perf.FechaOrientacion
+                Value = perf.FechaObtencion
             };
             parametros[4] = new SqlParameter
             {
@@ -168,7 +168,7 @@ namespace ClassLogicaNegocios
             };
 
             //string sentencia = "insert into PerfilProfe values(@F_Profe,F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
-            string sentencia1 = "UPDATE PerfilProfe SET F_Profe = @F_Profe, F_Grado = @F_Grado, Estado = @Estado, FechaOrientacion = @FechaOrientacion, Evidencia=@Evidencia,  WHERE Id_Perfil = " + id + ";";
+            string sentencia1 = "UPDATE PerfilProfe SET F_Profe = @F_Profe, F_Grado = @F_Grado, Estado = @Estado, FechaObtentacion = @FechaObtencion, Evidencia=@Evidencia,  WHERE Id_Perfil = " + id + ";";
             Boolean salida = false;
 
             salida = objectoDeAcceso.ModificaParametros(sentencia1, objectoDeAcceso.AbrirConexion(ref result), ref result, parametros);
@@ -213,11 +213,11 @@ namespace ClassLogicaNegocios
         }
 
         //Obtener profesores en grid
-        public DataTable ObtenerProfe(ref string msj_salida)
+        public DataTable ObtenerPerfil(ref string msj_salida)
         {
             //string sentencia = "insert into PerfilProfe values(@F_Profe, @F_Grado, @Estado, @FechaOrientacion, @Evidencia);";
 
-            string query = "select Id_Perfil as Codigo, F_Profe as F_Profe, F_Grado as F_Grado, Estado as Estado, FechaObtencion as FechaOrientacion, Evidencia as Evidencia from PerfilProfe  ";
+            string query = "select Id_Perfil as Codigo, F_Profe as F_Profe, F_Grado as F_Grado, Estado as Estado, FechaObtencion as FechaObtencion, Evidencia as Evidencia from PerfilProfe  ";
             DataSet ObtencionCarreras = null;
             DataTable Datos_salida = null;
             ObtencionCarreras = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
@@ -231,7 +231,6 @@ namespace ClassLogicaNegocios
                     //devolviendo registros
 
                 }
-
             }
             return Datos_salida;
         }

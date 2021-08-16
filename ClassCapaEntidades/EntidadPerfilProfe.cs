@@ -12,7 +12,7 @@ namespace ClassCapaEntidades
         public int F_Profe { set; get; }
         public int F_Grado { set; get; }
         public string Estado { set; get; }
-        public DateTime FechaOrientacion { set; get; }
+        public DateTime FechaObtencion { set; get; }
         public string Evidencia { set; get; }
     }
 }

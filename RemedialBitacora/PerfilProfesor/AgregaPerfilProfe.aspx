@@ -31,11 +31,10 @@
                 <DynamicMenuStyle BackColor="#FFFBD6" />
                 <DynamicSelectedStyle BackColor="#FFCC66" />
                 <Items>
-                    <asp:MenuItem NavigateUrl="Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="1"/>
-                    <asp:MenuItem NavigateUrl="GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="2"/>
-                    <asp:MenuItem NavigateUrl="PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
-                  
-                    <asp:MenuItem NavigateUrl="AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
+                    <asp:MenuItem NavigateUrl="../inicio.aspx" Text="Inicio" Value="1"/>
+                    <asp:MenuItem NavigateUrl="../Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="2"/>
+                    <asp:MenuItem NavigateUrl="../GradoEspecialidad/AgregarGradoEspe.aspx" Text="Funciones Grado especialidad" Value="3"/>
+                    <asp:MenuItem NavigateUrl="../AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="4"/>   
                 </Items>
                 <StaticHoverStyle BackColor="#990000" ForeColor="White" />
                 <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
@@ -75,6 +74,19 @@
                      <h2>Mostrar tabla de registros</h2>
 
                      <asp:GridView ID="GridView1" runat="server" CssClass="auto-style276" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="245px">
+                        <Columns>
+                                                 <asp:templatefield headertext="Editar" SortExpression="[Id Especifico]">
+                                                <itemtemplate >
+                                                  <asp:Button   ID='LinkButton1' runat="server" Text="Editar" OnClick="EditarPerfil" CommandArgument='<%# Bind("[Codigo]")%>' >  </asp:Button>
+                                                </itemtemplate>
+                                              </asp:templatefield>
+                                                <asp:TemplateField HeaderText="Eliminar" SortExpression="[Id Especifico]"><ItemTemplate>
+                                                                                  <asp:Button  ID='LinkButton2' runat="server" Text="Eliminar" OnClick="EliminarPerfil" CommandArgument='<%# Bind("[Codigo]")%>' >  </asp:Button>
+                                
+                                                </ItemTemplate>
+                                                </asp:TemplateField>
+                                                
+                                             </Columns>
                      </asp:GridView>
                      <br />
 
