@@ -11,7 +11,7 @@ namespace ClassCapaEntidades
         public int Id_GruCuat { set; get; }
         public int F_ProgEd { set; get; }
         public int F_Grupo { set; get; }
-        public int F_Cuatri { set; get; }
+        //public int F_Cuatri { set; get; }
         public string Turno { set; get; }
         public string Modalidad { set; get; }
         public string varchar { set; get; }

@@ -35,12 +35,6 @@
                      </asp:DropDownList>
 
                  </div>
-                <div>
-                    <asp:Label ID="Label3" runat="server" Text="Selecciona grupo cuatrimestre"></asp:Label>
-                     <asp:DropDownList ID="DropDownList3" runat="server">
-                     </asp:DropDownList>
-
-                 </div>
                  <div>
                      <asp:Label ID="Label4" runat="server" Text="Extra"></asp:Label>
                      <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -53,7 +47,15 @@
         <div>
             <h2>Muestra registros agregados</h2>
             <p>
-                <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Height="171px" Width="278px">
+                <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Height="171px" Width="278px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                 <Columns>
+            
+                                                <asp:TemplateField HeaderText="Eliminar" SortExpression="[Id Especifico]"><ItemTemplate>
+                                                                                  <asp:Button  ID='LinkButton2' runat="server" Text="Eliminar" OnClick="EliminarAsignacion" CommandArgument='<%# Bind("[Codigo]")%>' >  </asp:Button>
+                                
+                                                </ItemTemplate>
+                                                </asp:TemplateField>
+                                             </Columns>
                 </asp:GridView>
             </p>
 

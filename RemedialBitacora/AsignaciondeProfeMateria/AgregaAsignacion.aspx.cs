@@ -19,7 +19,7 @@ namespace RemedialBitacora.AsignaciondeProfeMateria
                 ObjAsig = new LogicaAsignaprofeMateriaCuatri();
                 Session["ObjAsig"] = ObjAsig;
                 string msj = "";
-                GridView1.DataSource = ObjAsig.ObtenerGrado(ref msj);
+                GridView1.DataSource = ObjAsig.ObtenAsig(ref msj);
                 if (GridView1.DataSource != null)
                 {
                     GridView1.DataBind();
@@ -34,6 +34,11 @@ namespace RemedialBitacora.AsignaciondeProfeMateria
                 List<EntidadProfesor> Profe = null;
                 string msj = "";
                 Profe = ObjAsig.GetProfe1(ref msj);
+                GridView1.DataSource = ObjAsig.ObtenAsig(ref msj);
+                if (GridView1.DataSource != null)
+                {
+                    GridView1.DataBind();
+                }
                 if (Profe != null)
                 {
                     foreach (EntidadProfesor edo in Profe)
@@ -53,17 +58,16 @@ namespace RemedialBitacora.AsignaciondeProfeMateria
 
                     }
                 }
-                List<EntidadGrupoCuatrimestre> MostrarCuatri = null;
-                MostrarCuatri = ObjAsig.GetGrupoCuatri(ref msj);
-                if (Profe != null)
-                {
-                    foreach (EntidadGrupoCuatrimestre cua in MostrarCuatri)
-                    {
-                        DropDownList3.Items.Add(new ListItem(cua.Turno.ToString(), cua.Id_GruCuat.ToString()));
-                        DropDownList3.DataBind();
-
-                    }
-                }
+                //List<EntidadGrupoCuatrimestre> MostrarCuatri = null;
+                //MostrarCuatri = ObjAsig.GetGrupoCuatri(ref msj);
+                //if (Profe != null)
+                //{
+                //    foreach (EntidadGrupoCuatrimestre cua in MostrarCuatri)
+                //    {
+                //        DropDownList3.Items.Add(new ListItem(cua.Turno.ToString(), cua.Id_GruCuat.ToString()));
+                //        DropDownList3.DataBind();
+                //    }
+                //}
             }
 
 
@@ -75,13 +79,30 @@ namespace RemedialBitacora.AsignaciondeProfeMateria
             {
                 F_Profe = Convert.ToInt16(DropDownList1.SelectedValue),
                 F_Materia = Convert.ToInt16(DropDownList2.SelectedValue),
-                F_GrupoCuatri = Convert.ToInt16(DropDownList3.SelectedValue),
+               // F_GrupoCuatri = Convert.ToInt16(DropDownList3.SelectedValue),
                 Extra = TextBox1.Text
             };
 
             string resp = "";
             Boolean recibe = false;
             recibe = ObjAsig.InsertarAsignacionProf(temp, ref resp);
+
+        }
+        protected void EliminarAsignacion(object sender, EventArgs e)
+        {
+            string msj = "";
+            string x = ((Button)sender).CommandArgument;
+            string id = x.ToString();
+            ObjAsig.DeleteAsig(id, ref msj);
+
+            GridView1.DataSource = ObjAsig.ObtenAsig(ref msj);
+            if (GridView1.DataSource != null)
+            {
+                GridView1.DataBind();
+            }
+        }
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

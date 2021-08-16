@@ -18,13 +18,13 @@ namespace ClassLogicaNegocios
         //insertar grado especialidad
         public Boolean InsertarAsignacionProf(EntidadAsignaProfeMatCuatri asign, ref string mensajeSalida)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[3];
             //  string otro = "platano";
 
             parametros[0] = new SqlParameter
             {
                 ParameterName = "F_Profe",
-                SqlDbType = SqlDbType.TinyInt,
+                SqlDbType = SqlDbType.SmallInt,
                 Direction = ParameterDirection.Input,
                 Value = asign.F_Profe
             };
@@ -32,20 +32,13 @@ namespace ClassLogicaNegocios
             parametros[1] = new SqlParameter
             {
                 ParameterName = "F_Materia",
-                SqlDbType = SqlDbType.TinyInt,
+                SqlDbType = SqlDbType.SmallInt,
                 Direction = ParameterDirection.Input,
                 Value = asign.F_Materia
             };
 
+           
             parametros[2] = new SqlParameter
-            {
-                ParameterName = "F_GrupoCuatri",
-                SqlDbType = SqlDbType.TinyInt,
-                Direction = ParameterDirection.Input,
-                Value = asign.F_GrupoCuatri
-
-            };
-            parametros[3] = new SqlParameter
             {
                 ParameterName = "extra",
                 SqlDbType = SqlDbType.VarChar,
@@ -55,7 +48,7 @@ namespace ClassLogicaNegocios
             };
 
 
-            string sentencia = "insert into AsignaProfeMateriaCuatri values(@F_Profe, @F_Materia, @F_GrupoCuatri, @extra);";
+            string sentencia = "insert into AsignaProfeMateriaCuatri values(@F_Profe, @F_Materia, @extra);";
             Boolean salida = false;
 
             salida = objectoDeAcceso.OperacionesSQLConParametros(sentencia, objectoDeAcceso.AbrirConexion(ref mensajeSalida),
@@ -65,7 +58,7 @@ namespace ClassLogicaNegocios
         }
 
         //borrar registro
-        public Boolean deleteGrado(string id, ref string result)
+        public Boolean DeleteAsig(string id, ref string result)
         {
             string sentencia = "delete from AsignaProfeMateriaCuatri where Id_AsignaPro = " + id + ";";
             Boolean salida = false;
@@ -77,7 +70,7 @@ namespace ClassLogicaNegocios
         //editar registro
         public Boolean UpdateClient(EntidadAsignaProfeMatCuatri asign, string id, ref string result)
         {
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[3];
             //  string otro = "platano";
 
             parametros[0] = new SqlParameter
@@ -98,14 +91,6 @@ namespace ClassLogicaNegocios
 
             parametros[2] = new SqlParameter
             {
-                ParameterName = "F_GrupoCuatri",
-                SqlDbType = SqlDbType.TinyInt,
-                Direction = ParameterDirection.Input,
-                Value = asign.F_GrupoCuatri
-
-            };
-            parametros[3] = new SqlParameter
-            {
                 ParameterName = "extra",
                 SqlDbType = SqlDbType.VarChar,
                 Size = 50,
@@ -115,17 +100,17 @@ namespace ClassLogicaNegocios
 
 
             //string sentencia = "insert into AsignaProfeMateriaCuatri values(@F_Profe, @F_Materia, @F_GrupoCuatri, @extra);";
-            string sentencia1 = "UPDATE AsignaProfeMateriaCuatri SET F_Profe = @F_Profe, F_Materia = @F_Materia, F_GrupoCuatri = @F_GrupoCuatri, extra = @extra  WHERE Id_AsignaPro = " + id + ";";
+            string sentencia1 = "UPDATE AsignaProfeMateriaCuatri SET F_Profe = @F_Profe, F_Materia = @F_Materia, extra = @extra  WHERE Id_AsignaPro = " + id + ";";
             Boolean salida = false;
             salida = objectoDeAcceso.ModificaParametros(sentencia1, objectoDeAcceso.AbrirConexion(ref result), ref result, parametros);
 
             return salida;
         }
         //Obtener grado en grid
-        public DataTable ObtenerGrado(ref string msj_salida)
+        public DataTable ObtenAsig(ref string msj_salida)
         {
            
-            string query = "select Id_AsignaPro as Codigo, F_Profe as F_Profe, F_Materia as F_Materia, F_GrupoCuatri as F_GrupoCuatri, extra as extra from AsignaProfeMateriaCuatri;";
+            string query = "select Id_AsignaPro as Codigo, F_Profe as F_Profe, F_Materia as F_Materia, extra as extra from AsignaProfeMateriaCuatri;";
             DataSet obtengrado = null;
             DataTable Datos_salida = null;
             obtengrado = objectoDeAcceso.ConsultaDS(query, objectoDeAcceso.AbrirConexion(ref msj_salida), ref msj_salida);
@@ -234,7 +219,7 @@ namespace ClassLogicaNegocios
                     s.Add(new EntidadGrupoCuatrimestre
                     {
                         Id_GruCuat = (short)obtenDatos[0],
-                        Turno = (string)obtenDatos[4]
+                        Turno = (string)obtenDatos[3]
 
                     });
                 }
