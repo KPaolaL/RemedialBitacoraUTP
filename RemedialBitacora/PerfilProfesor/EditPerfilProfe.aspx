@@ -15,7 +15,7 @@
                     <asp:MenuItem NavigateUrl="../inicio.aspx" Text="Inicio" Value="1"/>
                    <asp:MenuItem NavigateUrl="../Profesor/AgregaProfesor.aspx" Text="Agregar profesor" Value="2"/>
                     <asp:MenuItem NavigateUrl="../PerfilProfesor/AgregaPerfilProfe.aspx" Text="Funciones Perfil Profe" Value="3"/> 
-                    <asp:MenuItem NavigateUrl="../AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="3"/>   
+                    <asp:MenuItem NavigateUrl="../AsignaciondeProfeMateria/AgregaAsignacion.aspx" Text="Funciones de asignacion" Value="4"/>   
                 </Items>
             </asp:Menu> 
 
