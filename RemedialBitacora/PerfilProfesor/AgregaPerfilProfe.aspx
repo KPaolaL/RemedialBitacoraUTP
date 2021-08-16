@@ -74,7 +74,7 @@
                  <div>
                      <h2>Mostrar tabla de registros</h2>
 
-                     <asp:GridView ID="GridView1" runat="server" CssClass="auto-style276" Width="245px">
+                     <asp:GridView ID="GridView1" runat="server" CssClass="auto-style276" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="245px">
                      </asp:GridView>
                      <br />
 

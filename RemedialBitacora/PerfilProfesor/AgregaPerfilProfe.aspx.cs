@@ -20,6 +20,12 @@ namespace RemedialBitacora.PerfilProfesor
             {
                 LogPer = new LogicaPerfilProfe();
                 Session["LogPer"] = LogPer;
+                string msj = "";
+                GridView1.DataSource = LogPer.ObtenerProfe(ref msj);
+                if (GridView1.DataSource != null)
+                {
+                    GridView1.DataBind();
+                }
             }
             else
             {
@@ -75,6 +81,11 @@ namespace RemedialBitacora.PerfilProfesor
        
             TextBox1.Text = resp;
             //TextBox2.Text = DropDownList2.SelectedValue;
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
